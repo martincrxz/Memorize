@@ -18,7 +18,7 @@ struct ContentView: View {
 }
 ```
 
-In this case, `body` is a read-only calculated property, in (https://docs.swift.org/swift-book/LanguageGuide/Properties.html#)[https://docs.swift.org/swift-book/LanguageGuide/Properties.html#] there's information about all types of properties.
+In this case, `body` is a read-only calculated property, in [https://docs.swift.org/swift-book/LanguageGuide/Properties.html#](https://docs.swift.org/swift-book/LanguageGuide/Properties.html#) there's information about all types of properties.
 
 ## Lecture 2
 
