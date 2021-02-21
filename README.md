@@ -10,7 +10,7 @@ This is my personal follow up of the leactures and assignments, which are now op
 
 Struct's or class' property that is calculated on access. In the next example, `body` is a calculated property:
 
-````swift
+```swift
 struct ContentView: View {
     var body: some View {
         Text("Hello, World!")
