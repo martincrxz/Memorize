@@ -22,6 +22,10 @@ In this case `body` is a read-only calculated property.
 
 On [https://docs.swift.org/swift-book/LanguageGuide/Properties.html#](https://docs.swift.org/swift-book/LanguageGuide/Properties.html#) there's information about all types of properties.
 
+### "some" keyword
+
+The `some` keyword is used to indicate that a value has an <em>opaque type</em>. See [The "Some" Keyword In Swift](https://learnappmaking.com/some-swift-opaque-types-how-to/).
+
 ## Lecture 2
 
 ## Lecture 3
