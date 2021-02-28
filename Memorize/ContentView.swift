@@ -17,10 +17,12 @@ struct ContentView: View {
                 CardView(card: card).onTapGesture {
                     self.emojiGame.choose(card: card)
                 }
+                    .aspectRatio(0.75, contentMode: .fit)
             }
         }
             .padding()
             .foregroundColor(Color.orange)
+        .font(emojiGame.cards.count > 4 ? Font.title : Font.largeTitle)
     }
 }
 
@@ -39,7 +41,6 @@ struct CardView: View {
                 RoundedRectangle(cornerRadius: 10.0)
                     .stroke(lineWidth: 3.0)
                 Text(card.content)
-                    .font(Font.largeTitle)
             }
         }
     }
