@@ -15,6 +15,6 @@ extension Array where Element: Identifiable {
                 return index
             }
         }
-        return Optional.none
+        return nil
     }
 }

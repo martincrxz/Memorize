@@ -12,19 +12,26 @@ struct EmojiGameView: View {
     @ObservedObject var emojiGame: EmojiMemoryGame
     
     var body: some View {
-        Grid(emojiGame.cards) { card in
-            CardView(card: card).onTapGesture {
-                self.emojiGame.choose(card: card)
+        VStack {
+            Text("New Game").onTapGesture {
+                self.emojiGame.restart()
+            }
+            Text(emojiGame.title).font(Font.largeTitle)
+            Grid(emojiGame.cards) { card in
+                CardView(card: card, color: self.emojiGame.color).onTapGesture {
+                    self.emojiGame.choose(card: card)
+                }
+                    .padding()
             }
                 .padding()
+            .foregroundColor(emojiGame.color)
         }
-            .padding()
-            .foregroundColor(Color.orange)
     }
 }
 
 struct CardView: View {
     var card: MemoryGame<String>.Card
+    var color: Color
     
     var body: some View {
         GeometryReader { geometry in
@@ -35,8 +42,10 @@ struct CardView: View {
     func body(size: CGSize) -> some View {
         ZStack {
             if !self.card.faceUp {
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .fill(Color.orange)
+                if !card.matched {
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .fill(color)
+                }
             }
             else {
                 RoundedRectangle(cornerRadius: cornerRadius)
