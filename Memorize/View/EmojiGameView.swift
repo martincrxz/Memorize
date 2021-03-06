@@ -12,19 +12,42 @@ struct EmojiGameView: View {
     @ObservedObject var emojiGame: EmojiMemoryGame
     
     var body: some View {
-        VStack {
-            Text("New Game").onTapGesture {
-                self.emojiGame.restart()
-            }
-            Text(emojiGame.title).font(Font.largeTitle)
-            Grid(emojiGame.cards) { card in
-                CardView(card: card, color: self.emojiGame.color).onTapGesture {
-                    self.emojiGame.choose(card: card)
+        GeometryReader { geometry in
+            VStack {
+                HStack() {
+                    Button("< Back") {
+                    
+                    }
+                        .padding(.leading)
+                    Spacer()
+                    Button("New Game") {
+                        self.emojiGame.restart()
+                    }
+                        .padding(.trailing)
                 }
-                    .padding()
+                    .if(geometry.size.height < geometry.size.width) { $0.padding(.top) }
+                    .padding(.bottom)
+                HStack() {
+                    Text(self.emojiGame.title)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding(.leading)
+                    Spacer()
+                }
+                Grid(self.emojiGame.cards) { card in
+                    CardView(card: card, color: self.emojiGame.color).onTapGesture {
+                        self.emojiGame.choose(card: card)
+                    }
+                        .padding()
+                        .foregroundColor(self.emojiGame.color)
+                }
+                HStack() {
+                    Text("Score: ")
+                    Text("0")
+                }
+                    .font(.title)
+                    .padding(.bottom)
             }
-                .padding()
-            .foregroundColor(emojiGame.color)
         }
     }
 }
