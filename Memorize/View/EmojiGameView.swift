@@ -43,7 +43,7 @@ struct EmojiGameView: View {
                 }
                 HStack() {
                     Text("Score: ")
-                    Text("0")
+                    Text(String(self.emojiGame.score))
                 }
                     .font(.title)
                     .padding(.bottom)
