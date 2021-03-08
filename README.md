@@ -20,11 +20,16 @@ struct ContentView: View {
 
 In this case `body` is a read-only calculated property. 
 
-On [https://docs.swift.org/swift-book/LanguageGuide/Properties.html#](https://docs.swift.org/swift-book/LanguageGuide/Properties.html#) there's information about all types of properties.
+See:
+* [Properties](https://docs.swift.org/swift-book/LanguageGuide/Properties.html#)
 
 ### "some" keyword
 
-The `some` keyword is used to indicate that a value has an <em>opaque type</em>. See [The "Some" Keyword In Swift](https://learnappmaking.com/some-swift-opaque-types-how-to/).
+The `some` keyword is used to indicate that a value has an <em>opaque type</em>. 
+
+See:
+* [Opaque types](https://docs.swift.org/swift-book/LanguageGuide/OpaqueTypes.html)
+* [The "Some" Keyword In Swift](https://learnappmaking.com/some-swift-opaque-types-how-to/)
 
 ## Lecture 2
 
@@ -56,6 +61,20 @@ Both can have functions. There's a special function called `init`, an initialize
 | "free" init initialize all vars   	| "free" init initialize no vars    	|
 | mutability must be explicit (`var`)   | always mutable                    	|
 
+See:
+* [Structures and Classes](https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html)
+
+### Generics
+
+See:
+* [Generics](https://docs.swift.org/swift-book/LanguageGuide/Generics.html)
+
+### Functions as types
+
+See:
+* [Functions](https://docs.swift.org/swift-book/LanguageGuide/Functions.html)
+* [Clousures](https://docs.swift.org/swift-book/LanguageGuide/Closures.html)
+
 ## Lecture 3
 
 ### Protocols
@@ -70,13 +89,11 @@ See:
 ### Extensions
 
 Extensions let us:
-
 * Add new functions implementations to classes and structs.
-* Add default implementations to protocols functions too.
+* Add default implementations to protocols functions.
 * Make a struct or class conform to a protocol.
 
 Example of the last case:
-
 ```swift
 struct Boat {
 	...
@@ -89,7 +106,7 @@ extension Boat: Moveable {
 }
 ```
 
-In the example, `Boat` didn't conform to `Movable` protocol, but then, maybe in another source file or even another project, we decided that `Boat` should implement `Movable` protocol, so we implement the corresponding functions and properties, using the corresponding syntax, and now `Boat` does conform to the protocol.
+In the example, `Boat` didn't conform to `Moveable` protocol, but then, maybe in another source file or even another project, we decided that `Boat` should conform to `Moveable` protocol, so we implement the corresponding functions and properties, using the corresponding syntax, and now `Boat` does conform to the protocol.
 
 See:
 * [Extensions](https://docs.swift.org/swift-book/LanguageGuide/Extensions.html)
@@ -118,7 +135,17 @@ That will extend `Array` capabilities, so now we can find the first index of an 
 See:
 * [Generics](https://docs.swift.org/swift-book/LanguageGuide/Generics.html)
 
-### Enums
+### Layout
 
 ## Lecture 4
 
+### Enums
+
+See:
+* [Enumerations](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html)
+
+### Optionals
+
+See:
+* [The Basics](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html) (Optionals part specifically)
+* [Optional Chaining](https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html)
