@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct EmojiGameView: View {
-    @ObservedObject var emojiGame: EmojiMemoryGame
+    
+    @ObservedObject
+    private(set) var emojiGame: EmojiMemoryGame
     
     var body: some View {
         GeometryReader { geometry in
@@ -50,11 +52,14 @@ struct EmojiGameView: View {
             }
         }
     }
+    
 }
 
 struct CardView: View {
-    var card: MemoryGame<String>.Card
-    var color: Color
+    
+    private(set) var card: MemoryGame<String>.Card
+    
+    private(set) var color: Color
     
     var body: some View {
         GeometryReader { geometry in
@@ -62,7 +67,7 @@ struct CardView: View {
         }
     }
     
-    func body(size: CGSize) -> some View {
+    private func body(size: CGSize) -> some View {
         ZStack {
             if !self.card.faceUp {
                 if !card.matched {
@@ -83,15 +88,20 @@ struct CardView: View {
     
     // MARK: Constants
     
-    let cornerRadius: CGFloat = 10.0
-    let edgeLineWidth: CGFloat = 3.0
-    func fontSize(for size:CGSize) -> CGFloat {
+    private let cornerRadius: CGFloat = 10.0
+    
+    private let edgeLineWidth: CGFloat = 3.0
+    
+    private func fontSize(for size:CGSize) -> CGFloat {
         0.75 * min(size.width, size.height)
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
         EmojiGameView(emojiGame: EmojiMemoryGame())
     }
+    
 }

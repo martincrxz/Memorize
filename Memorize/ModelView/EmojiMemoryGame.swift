@@ -9,6 +9,7 @@
 import SwiftUI
 
 class EmojiMemoryGame : ObservableObject {
+    
     private static let themes = [
         EmojiTheme(emojis: ["👻", "🎃", "🕷", "💀", "🔪"], title: "Halloween", color: Color.orange),
         EmojiTheme(emojis: ["🇦🇷","🥟", "🐄", "⚽️"], title: "Argentina", color: Color.blue)
@@ -21,7 +22,8 @@ class EmojiMemoryGame : ObservableObject {
         }
     }
     
-    @Published private var game: MemoryGame<String>
+    @Published
+    private var game: MemoryGame<String>
     
     private var theme = themes.randomElement()!
     
@@ -60,9 +62,13 @@ class EmojiMemoryGame : ObservableObject {
 }
 
 struct EmojiTheme {
+    
     let emojis: [String]
+    
     let title: String
+    
     let color: Color
+    
     let count: Int
     
     init(emojis: [String], title: String, color: Color) {
@@ -71,4 +77,5 @@ struct EmojiTheme {
         self.color = color
         self.count = self.emojis.count
     }
+    
 }

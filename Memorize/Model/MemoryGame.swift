@@ -9,7 +9,9 @@
 import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
-    var cards: Array<Card>
+    
+    private(set) var cards: Array<Card>
+    
     private(set) var score: Int = 0
     
     init(pairsOfCards: Int, contentFactory: (Int) -> CardContent) {
@@ -22,7 +24,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         cards.shuffle()
     }
     
-    var previouslySelectedCardIndex: Int? {
+    private var previouslySelectedCardIndex: Int? {
         get { cards.indices.filter { cards[$0].faceUp }.only }
         set {
             for index in cards.indices {
@@ -62,4 +64,5 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         var seen: Bool = false
         var content: CardContent
     }
+    
 }
